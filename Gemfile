@@ -11,6 +11,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'devise'
+gem 'omniauth-facebook'
+gem 'koala'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
@@ -36,4 +39,33 @@ group :development do
 end
 group :development, :test do
   gem 'rubocop'
+end
+group :test do
+  gem "connection_pool"
+  gem "launchy"
+  gem "minitest-reporters"
+  gem "mocha"
+  gem "poltergeist"
+  gem "shoulda-context"
+  gem "shoulda-matchers", ">= 3.0.1"
+ 
+end
+
+group :test do
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara'
+  gem 'minitest-focus'
+end
+
+group :development do
+  
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem "rack-livereload"
+  gem "better_errors"
+  gem 'annotate'
+  gem "guard-minitest", :require => false
+  gem "rb-fsevent", :require => false
+  gem "terminal-notifier-guard", :require => false
+
 end
