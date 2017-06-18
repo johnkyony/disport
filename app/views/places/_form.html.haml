@@ -1,0 +1,16 @@
+= form_for @place do |f|
+  %fieldset.form-group
+    = f.label :title
+    = f.text_field :title, class: "form-control"
+  %fieldset.form-group
+    = f.label :visited_by
+    = f.text_field :visited_by, class: "form-control"
+  %fieldset.form-group
+    = f.label :address, 'Address'
+    = f.text_field :address, class: "form-control"
+  %fieldset.form-group
+    = f.label :address, 'Address'
+    = f.text_field :address, class: "form-control"
+    %small.text-muted
+      You can also enter IP. Your IP is #{request.ip}
+  = f.submit 'Add!', class: 'btn btn-primary'
