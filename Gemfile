@@ -15,6 +15,8 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'koala'
 gem "erb2haml", :group => :development
+gem "webpacker"
+gem 'geocoder'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
