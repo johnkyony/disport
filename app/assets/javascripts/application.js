@@ -14,4 +14,5 @@
 //= require rails-ujs
 //= require 'tether'
 //= require bootstrap-sprockets
+//= require map
 //= require_tree .

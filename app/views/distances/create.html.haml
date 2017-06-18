@@ -1,0 +1,10 @@
+%header
+  %h1.display-4 Measure Distance
+= form_tag distances_path do
+  %fieldset.form-group
+    = label_tag 'from', 'From'
+    = select_tag 'from', options_from_collection_for_select(@places, :id, :title), class: "form-control"
+  %fieldset.form-group
+    = label_tag 'to', 'To'
+    = select_tag 'to', options_from_collection_for_select(@places, :id, :title), class: "form-control"
+  = submit_tag 'Go!', class: 'btn btn-primary'

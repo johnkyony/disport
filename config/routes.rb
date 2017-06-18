@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+  resources :distances, only: [:new, :create]
+
   resources :places, except: [:update, :edit, :destroy]
 
   get 'home/index'
