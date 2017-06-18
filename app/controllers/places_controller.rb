@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   def index
-    @places = Place.order('create_at DESC')
+    @places = Place.order('created_at DESC')
   end
 
   def new
@@ -19,11 +19,10 @@ class PlacesController < ApplicationController
   
   def show
     @place = Place.find(params[:id])
-    
   end
   
   private 
-  def place_params 
-    params.require(:place).permit(:title , :address , :visited_by)
+  def place_params
+    params.require(:place).permit(:title, :raw_address, :latitude, :longitude, :visited_by)
   end
 end
