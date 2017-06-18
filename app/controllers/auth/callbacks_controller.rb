@@ -1,12 +1,16 @@
 class Auth::CallbacksController < ApplicationController
   def facebook 
     user = User.create_from_omniauth(omniauth_params)
-    sign_in_and_redirect   home_index_path if user.persisted? 
+    if user.persisted?
+      redirect_to home_index_path
+    else
+      redirect_to :failure
+    end
     
   end
   
   def failure
-    redirect_to :root
+    redirect_to new_user_registration_path
   end
   
   private 

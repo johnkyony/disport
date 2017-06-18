@@ -7,12 +7,14 @@ class User < ApplicationRecord
   
   def self.create_from_omniauth(params)
     user = find_or_create_by(email: params.info.email , uid: params.uid)
+    user.password = Devise.friendly_token[0,20]
     user.update({
       token: params.credentials.token , 
       name: params.info.name , 
       avatar: params.info.image
     })
     user
+    
   end       
          
 end
