@@ -1,3 +1,7 @@
 %h1 Home#index
-%p Find me in app/views/home/index.html.haml
-= @user.location
+
+- if user_signed_in?
+  = @user.location
+- else
+  %p Find me in app/views/home/index.html.haml
+  
