@@ -5,6 +5,7 @@ require "mocha/mini_test"
 require "minitest/rails/capybara"
 require 'minitest/focus'
 
+
 # Improved Minitest output (color and progress bar)
 require "minitest/reporters"
 Minitest::Reporters.use!(
@@ -16,15 +17,14 @@ Minitest::Reporters.use!(
 require "capybara/rails"
 require "capybara/poltergeist"
 Capybara.javascript_driver = :poltergeist
-
+OmniAuth.config.test_mode = true
 class ActiveSupport::TestCase
   fixtures :all
   def sign_in_as(user)
     visit  user_session_path
-    assert "Email"
     fill_in "Email", with: user.email
     fill_in "Password", with: 'topsecret'
-    click_button "Sign in"
+    click_button "Log in"
   end
 end
 
@@ -42,3 +42,4 @@ class ActiveRecord::Base
   end
 end
 ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+

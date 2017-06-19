@@ -2,13 +2,13 @@ require 'test_helper'
 
 class DistancesControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get distances_new_url
+    get new_distance_url
     assert_response :success
   end
 
   test "should get create" do
-    get distances_create_url
-    assert_response :success
+    post distances_path
+    assert_response :redirect
   end
 
 end

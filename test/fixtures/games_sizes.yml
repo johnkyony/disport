@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+3_aside:
+  sizes: 5
+
+5_aside:
+  sizes: 9
+  
+full_field:
+  sizes: 21

@@ -2,17 +2,18 @@ require 'test_helper'
 
 class PlacesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get places_index_url
+    get places_path
     assert_response :success
   end
 
   test "should get new" do
-    get places_new_url
+    get new_place_path
     assert_response :success
   end
 
   test "should get create" do
-    get places_create_url
+    @place = places(:one)
+    get place_path(@place)
     assert_response :success
   end
 

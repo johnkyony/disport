@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  address: MyText
+the_park:
+  title: "The park"
+  address: "7 olivier panorama worcester"
   latitude: 1.5
   longitude: 1.5
-  visited_by: MyString
+  visited_by: "john"
 
-two:
-  title: MyString
-  address: MyText
+the_church:
+  title: "The church"
+  address: "140 king edward street"
   latitude: 1.5
   longitude: 1.5
-  visited_by: MyString
+  visited_by: "kyony"

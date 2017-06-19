@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618105109) do
+ActiveRecord::Schema.define(version: 20170619162324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "place_id"
+    t.bigint "games_size_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["games_size_id"], name: "index_games_on_games_size_id"
+    t.index ["place_id"], name: "index_games_on_place_id"
+    t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "games_sizes", force: :cascade do |t|
+    t.integer "sizes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "places", force: :cascade do |t|
     t.string "title"
@@ -46,4 +63,7 @@ ActiveRecord::Schema.define(version: 20170618105109) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "games", "games_sizes"
+  add_foreign_key "games", "places"
+  add_foreign_key "games", "users"
 end

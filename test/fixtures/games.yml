@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+john_game:
+  user: john
+  place: the_park
+  games_size: 3_aside
+
+lena_game:
+  user: lena
+  place: the_church
+  games_size: 5_aside
