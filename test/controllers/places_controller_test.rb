@@ -12,7 +12,7 @@ class PlacesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get create" do
-    @place = places(:one)
+    @place = places(:the_park)
     get place_path(@place)
     assert_response :success
   end

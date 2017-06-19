@@ -9,7 +9,7 @@ feature "PlayersFeatures" do
     visit root_path
     games.each do |game|
       assert_content game.user.name
-      assert_content game.location 
+      assert_content game.place.address
       assert_content game.game_size.size
     end
     
