@@ -19,6 +19,9 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
+#  latitude               :float
+#  longitude              :float
+#  location               :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
@@ -29,6 +32,7 @@ john:
   token: "EDsewOp2MZCr9cZ"
   uid: "10155437128467"
   avatar: "http://graph.facebook.com/v2.6/10155437128468147/pictur" 
+  location: "Cape Town, WC 7100, South Africa"
   
 
 lena:
@@ -37,3 +41,4 @@ lena:
   token: "EDsewOp2MZCr9cZD"
   uid: "101554371284657"
   avatar: "http://graph.facebook.com/v2.6/10155437128468147/picture" 
+  location: "Cape Town, WC 7100, South Africa"
