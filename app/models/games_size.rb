@@ -1,2 +1,0 @@
-class GamesSize < ApplicationRecord
-end

@@ -1,6 +1,9 @@
 class Auth::CallbacksController < ApplicationController
   def facebook 
-    user = User.create_from_omniauth(omniauth_params)
+    ip_address = request.remote_ip
+    user_location =  request.location.try(:address)
+    
+    user = User.create_from_omniauth(omniauth_params , ip_address , user_location)
     if user.persisted?
       redirect_to home_index_path
     else

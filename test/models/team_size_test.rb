@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: games
+# Table name: team_sizes
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  place_id   :integer
+#  size       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  game_id    :integer
 #
 
 require 'test_helper'
 
-class GameTest < ActiveSupport::TestCase
+class TeamSizeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

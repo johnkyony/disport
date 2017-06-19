@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
+
+ 
+
   resources :distances, only: [:new, :create]
 
   resources :places, except: [:update, :edit, :destroy]
+  resources :games
 
   get 'home/index'
   get 'visitors/index'

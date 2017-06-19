@@ -20,6 +20,8 @@ gem 'geocoder'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
+gem 'simplecov', :require => false, :group => :test
+gem 'annotate'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'

@@ -10,7 +10,7 @@
     = f.label :raw_address, 'Address'
     = f.text_field :raw_address, class: "form-control"
     %small.text-muted
-      You can also enter IP. Your IP is #{request.ip}
+      You can also enter IP. Your IP is #{request.remote_ip}
   .form-group.row
     .col-sm-1
       = f.label :latitude
