@@ -6,6 +6,7 @@ jQuery ->
     map = new google.maps.Map document.getElemntbyId('map') , { 
       center: { lat: -34.397 , lng: 150.644} 
       zoom: 8 
+      mapTypeId: 'terrain'
     }
     console.log('this is working')
   window.initMap = -> 
