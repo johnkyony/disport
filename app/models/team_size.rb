@@ -10,5 +10,5 @@
 #
 
 class TeamSize < ApplicationRecord
-    belongs_to :game
+    
 end

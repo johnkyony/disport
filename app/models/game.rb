@@ -14,7 +14,6 @@
 
 class Game < ApplicationRecord
   belongs_to :user
-  belongs_to :place
   has_many :team_sizes
   attr_accessor :raw_address
   geocoded_by :address

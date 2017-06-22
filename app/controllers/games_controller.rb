@@ -1,16 +1,17 @@
 class GamesController < ApplicationController
-    def index
-    @places = Place.order('created_at DESC')
+  def index
+    @games = Game.order('created_at DESC')
   end
 
   def new
-    @place = Place.new
+    @game = Game.new
   end
 
   def create
-    @place = Place.new(place_params)
-    if @place.save
-      flash[:success] = "Place added!"
+    @game = Game.new(game_params)
+    @game.user_id = current_user.id
+    if @game.save
+      flash[:success] = "Game added!"
       redirect_to root_path
     else
       render 'new'
@@ -18,11 +19,13 @@ class GamesController < ApplicationController
   end
   
   def show
-    @place = Place.find(params[:id])
+    @game = Game.find(params[:id])
   end
   
   private 
-  def place_params
-    params.require(:place).permit(:title, :raw_address, :latitude, :longitude, :visited_by)
+
+  def game_params
+    params.require(:game).permit(:user_id, :raw_address, :latitude, :longitude)
+
   end
 end

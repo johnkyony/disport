@@ -16,10 +16,11 @@
 
 john_game:
   user: john
-  place: the_park
+  address: "7 Olivier St Panorama Worcester"
  
 
 lena_game:
   user: lena
-  place: the_church
+  address: "67 Fairbairn St, Worcester"
+
   

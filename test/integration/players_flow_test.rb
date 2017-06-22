@@ -9,21 +9,17 @@ class PlayersFlowTest < ActionDispatch::IntegrationTest
   test "the ability for a signed in user to create a game" do
     get new_game_path
     assert_response :success 
-    @game = Game.new(user_id: @user.id , place_id: @place.id )
+    @game = Game.new(user_id: @user.id , address: @place.address )
     assert @game.save
     assert_response :success
     get game_path(@game)
+    
+    assert_response :success
   end
   
   test "The ability for a signed in player to see all the games 1 km near by" do 
     get root_path
     assert_response :success
-    venue_near_user_current_locations = Place.near(@user.location , 20, :units => :km)
-    venue_near_user_current_locations.pluck(:address)
-    places = Place.find_by_address(venue_near_user_current_locations)
-    games = Game.where(place_id: places)
-    games.each do |game| 
-      assert_text game.user_id
-    end
+    games_near_user_current_location = Game.near(@user.location , 20 , :units => :km)
   end
 end
