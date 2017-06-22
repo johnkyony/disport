@@ -54,6 +54,7 @@ group :test do
   gem "minitest-reporters"
   gem "mocha"
   gem "poltergeist"
+  gem "capybara-webkit"
   gem "shoulda-context"
   gem "shoulda-matchers", ">= 3.0.1"
  
@@ -63,6 +64,7 @@ group :test do
   gem 'minitest-rails'
   gem 'minitest-rails-capybara'
   gem 'minitest-focus'
+  gem "chromedriver-helper"
 end
 
 group :development do
