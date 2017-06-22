@@ -1,2 +1,6 @@
-%h1 Games#index
-%p Find me in app/views/games/index.html.haml
+%header
+  %h1.display-4 games
+= link_to 'Add Games', new_game_path, class: 'btn btn-primary btn-lg'
+.card
+  .card-block
+    %ul= render @games

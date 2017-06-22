@@ -14,5 +14,5 @@ Rails.application.routes.draw do
     match '/users/sign_out' => 'sessions#destroy', via: [:get, :delete]
   end
   
-  root 'visitors#index'
+  root 'games#index'
 end

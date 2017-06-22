@@ -1,16 +1,28 @@
 class GamesController < ApplicationController
-  def index
-  end
-
-  def create
-  end
-
-  def update
+    def index
+    @places = Place.order('created_at DESC')
   end
 
   def new
+    @place = Place.new
+  end
+
+  def create
+    @place = Place.new(place_params)
+    if @place.save
+      flash[:success] = "Place added!"
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
   
-  def show 
+  def show
+    @place = Place.find(params[:id])
+  end
+  
+  private 
+  def place_params
+    params.require(:place).permit(:title, :raw_address, :latitude, :longitude, :visited_by)
   end
 end

@@ -1,0 +1,23 @@
+= form_for @game do |f|
+  %h4 Enter either address or coordinates
+  %fieldset.form-group
+    = f.label :raw_address, 'Address'
+    = f.text_field :raw_address, class: "form-control"
+    %small.text-muted
+      You can also enter IP. Your IP is #{request.remote_ip}
+  .form-group.row
+    .col-sm-1
+      = f.label :latitude
+    .col-sm-3
+      = f.text_field :latitude, class: "form-control" , id: "place_latitude"
+    .col-sm-1
+      = f.label :longitude
+    .col-sm-3
+      = f.text_field :longitude, class: "form-control" , id: "place_longitude"
+    .col-sm-4
+      %a#find-on-map.btn.btn-info.btn-sm{:href => "#"} Find on the map
+  = f.submit 'Add!', class: 'btn btn-primary'
+  
+.card
+  .card-block
+    #map
