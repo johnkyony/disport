@@ -5,6 +5,7 @@ class Auth::CallbacksController < ApplicationController
     
     user = User.create_from_omniauth(omniauth_params , ip_address , user_location)
     if user.persisted?
+      sign_in(:user, user)
       redirect_to home_index_path
     else
       redirect_to :failure
