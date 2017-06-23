@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  game: one
+  game_owner_response_status: 1
+  game_player_response_status: 1
+
+two:
+  user: two
+  game: two
+  game_owner_response_status: 1
+  game_player_response_status: 1

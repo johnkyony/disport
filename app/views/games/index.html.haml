@@ -1,6 +1,11 @@
 %header
   %h1.display-4 games
 = link_to 'Add Games', new_game_path, class: 'btn btn-primary btn-lg'
-.card
-  .card-block
-    %ul= render @games
+- @games.each do |game|
+  .card{:style => "width: 20rem;"}
+    %p[game]
+    %img.card-img-top{:alt => "Card image cap", :src => "#{game.user.avatar}"}/
+    .card-block
+      %h4.card-title= game.user.name
+      %p.card-text Game Location : "#{game.address}"
+      = link_to "Join Game" , new_game_invitation_path(game) , class: "btn btn-primary" 

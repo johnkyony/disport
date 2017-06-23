@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-
-
- 
-
+  resources :invitations
+  
+  resources :games do 
+    resources :invitations
+  end
+  
   resources :distances, only: [:new, :create]
 
   resources :places, except: [:update, :edit, :destroy]
@@ -10,9 +12,10 @@ Rails.application.routes.draw do
 
   get 'home/index'
   get 'visitors/index'
-  devise_for :users , controllers: { omniauth_callbacks: 'auth/callbacks' } do
+  devise_for :users , controllers: { omniauth_callbacks: 'auth/callbacks' }  do
     match '/users/sign_out' => 'sessions#destroy', via: [:get, :delete]
   end
+  
   
   root 'games#index'
 end

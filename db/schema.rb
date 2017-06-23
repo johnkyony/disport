@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622140245) do
+ActiveRecord::Schema.define(version: 20170623121628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20170622140245) do
     t.integer "sizes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "game_id"
+    t.integer "game_owner_response_status", default: 0
+    t.integer "game_player_response_status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_invitations_on_game_id"
+    t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -77,5 +88,7 @@ ActiveRecord::Schema.define(version: 20170622140245) do
 
   add_foreign_key "games", "team_sizes"
   add_foreign_key "games", "users"
+  add_foreign_key "invitations", "games"
+  add_foreign_key "invitations", "users"
   add_foreign_key "team_sizes", "games"
 end

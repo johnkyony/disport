@@ -15,5 +15,18 @@ class GamesTest < ApplicationSystemTestCase
     end
   end
   
+  test "The user can request to join a game near by " do 
+    visit root_path
+    @games.each do |games| 
+      within "#game_#{games.id}" do 
+        assert_text games.user.name
+        assert_text games.address
+        click_link "Join Game"
+      end
+    end
+    
+    
+  end
+  
   
 end
