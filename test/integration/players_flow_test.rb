@@ -25,9 +25,8 @@ class PlayersFlowTest < ActionDispatch::IntegrationTest
   
   test "The ability for a signed in user join a game that he has not yet created" do 
     @game = games(:john_game)
-    get new_game_invitation_path(@game) 
+    post game_invitations_path(@game) , params: { invitation: { game_id: @game.id } }
     follow_redirect!
-    
-    
+    assert_text "waiting for #{@game.user.name} response"
   end
 end

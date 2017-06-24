@@ -1,9 +1,10 @@
 class InvitationsController < ApplicationController
+  before_action :authenticate_user!
   def index
   end
   
   def new
-    redirect_to game_invitations_path(params[:game_id]) , method: :post
+    
   end
   
   def create
@@ -12,7 +13,7 @@ class InvitationsController < ApplicationController
     @join_request.pending!
     if @join_request.save
       flash[:notice] = "#{@join_request.user.name} Your request has been placed please wait for response"
-        redirect_to game_path(@join_request.game_id)
+      redirect_to root_path
     else
         flash[:error] = "Please retry"
         render root_path

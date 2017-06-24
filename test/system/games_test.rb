@@ -23,7 +23,10 @@ class GamesTest < ApplicationSystemTestCase
         assert_text games.address
         click_link "Join Game"
       end
+      assert_text "Waiting on #{games.user.name} respond to request"
     end
+    
+    
     
     
   end
