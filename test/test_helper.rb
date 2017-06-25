@@ -23,6 +23,7 @@ Capybara.register_driver :selenium do |app|
 end
 
 class ActiveSupport::TestCase
+  
   fixtures :all
   def sign_in_as(user)
     visit  new_user_session_path
@@ -34,6 +35,8 @@ end
 
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
+  include Warden::Test::Helpers
+  Warden.test_mode!
 end
 
 # See: https://gist.github.com/mperham/3049152

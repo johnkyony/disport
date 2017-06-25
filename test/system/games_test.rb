@@ -16,6 +16,7 @@ class GamesTest < ApplicationSystemTestCase
   end
   
   test "The user can request to join a game near by " do 
+    sign_in_as(@user)
     visit root_path
     @games.each do |games| 
       within "#game_#{games.id}" do 

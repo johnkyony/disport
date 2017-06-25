@@ -8,4 +8,4 @@
     .card-block
       %h4.card-title= game.user.name
       %p.card-text Game Location : "#{game.address}"
-      = link_to "Join Game" , new_game_invitation_path(game) , class: "btn btn-primary" 
+      = link_to "Join Game" , game_invitations_path(game) , class: "btn btn-primary" 

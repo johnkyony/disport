@@ -4,7 +4,7 @@ class PlayersFlowTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:john)
     @place = places(:the_park)
-    sign_in_as(@user)
+    login_as(@user, :scope => :user, :run_callbacks => false)
   end
   test "the ability for a signed in user to create a game" do
     get new_game_path
@@ -26,7 +26,16 @@ class PlayersFlowTest < ActionDispatch::IntegrationTest
   test "The ability for a signed in user join a game that he has not yet created" do 
     @game = games(:john_game)
     post game_invitations_path(@game) , params: { invitation: { game_id: @game.id } }
-    follow_redirect!
-    assert_text "waiting for #{@game.user.name} response"
+    if assert_response :redirect 
+      login_as(@user, :scope => :user, :run_callbacks => false)
+      follow_redirect!
+      assert_text "waiting for #{@game.user.name} response"
+    else
+      follow_redirect!
+      
+      assert_text "waiting for #{@game.user.name} response"
+    end
+    
+    
   end
 end

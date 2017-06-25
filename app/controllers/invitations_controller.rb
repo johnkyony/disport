@@ -10,9 +10,10 @@ class InvitationsController < ApplicationController
   def create
     @join_request = Invitation.new(invitations_params)
     @join_request.user_id = current_user.id
+    game_owner = Game.find_by_id(params[:game_id])
     @join_request.pending!
     if @join_request.save
-      flash[:notice] = "#{@join_request.user.name} Your request has been placed please wait for response"
+      flash[:notice] ="waiting for #{game_owner.user.name} response"
       redirect_to root_path
     else
         flash[:error] = "Please retry"
