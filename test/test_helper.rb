@@ -23,14 +23,9 @@ Capybara.register_driver :selenium do |app|
 end
 
 class ActiveSupport::TestCase
-  
+  include Warden::Test::Helpers
+  Warden.test_mode!  
   fixtures :all
-  def sign_in_as(user)
-    visit  new_user_session_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: 'topsecret'
-    click_button "Log in"
-  end
 end
 
 class ActionDispatch::IntegrationTest

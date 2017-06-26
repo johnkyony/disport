@@ -7,9 +7,11 @@ class InvitationsControllerTest < ActionDispatch::IntegrationTest
   end
   test "should get index" do
     get invitations_url
-    sign_in_as(@user)
+    login_as(@user)
     follow_redirect!
-    assert_response :success
+  end
+  
+  test "should be able to create an invitation" do
   end
 
 end
