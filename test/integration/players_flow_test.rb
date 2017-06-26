@@ -23,16 +23,16 @@ class PlayersFlowTest < ActionDispatch::IntegrationTest
     games_near_user_current_location = Game.near(@user.location , 20 , :units => :km)
   end
   
-  test "The ability for a signed in user join a game that he has not yet created" do 
+  test "The ability for a signed in user join a game" do 
     @game = games(:john_game)
     post game_invitations_path(@game) 
+    
     if assert_response :redirect 
       login_as(@user)
       follow_redirect!
-      assert_text "waiting for #{@game.user.name} response"
     else
-      follow_redirect!
-      assert_text "waiting for #{@game.user.name} response"
+      assert_response :success
+      
     end
     
     
