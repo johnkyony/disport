@@ -1,11 +1,12 @@
 class GamesController < ApplicationController
   def index
-    if user_signed_in?
-      @games = Game.near(current_user.location , 20 , :units => :km)
-    else
-      @visitors_location = request.location.try(:address)
-      @games = Game.near(@visitors_location , 20 , :units => :km)
-    end
+    @games = Game.all
+    # if user_signed_in?
+    #   @games = Game.near(current_user.location , 20 , :units => :km)
+    # else
+    #   @visitors_location = request.location.try(:address)
+    #   @games = Game.near(@visitors_location , 20 , :units => :km)
+    # end
   end
 
   def new
