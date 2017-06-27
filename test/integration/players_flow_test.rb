@@ -32,9 +32,10 @@ class PlayersFlowTest < ActionDispatch::IntegrationTest
       follow_redirect!
     else
       assert_response :success
-      
     end
-    
+  end
+  
+  test "The player owner should be notified that a player has requested  to join his game" do 
     
   end
 end
