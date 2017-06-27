@@ -3,7 +3,7 @@ require "application_system_test_case"
 class GamesTest < ApplicationSystemTestCase
   setup do
     @john = users(:john)
-    sign_in_as(@john)
+    login_as(@john)
     @games = Game.near(@john.location , 20 , :units => :km)
   end
   test "The user can see all the games close to him" do
@@ -16,7 +16,7 @@ class GamesTest < ApplicationSystemTestCase
   end
   
   test "The user can request to join a game near by " do 
-    sign_in_as(@user)
+    login_as(@john)
     visit root_path
     @games.each do |games| 
       within "#game_#{games.id}" do 
