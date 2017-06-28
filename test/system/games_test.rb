@@ -52,7 +52,7 @@ class GamesTest < ApplicationSystemTestCase
     if @lena.id == @game.user.id 
       @invitations.each do | invitation|  
         within "#invitation_#{accepted_invitation.id}" do 
-          click_on "Accept"
+          click_on  "Accept"
         end
       end
       assert_text "#{accepted_invitation.user.name} has been acceptted"
