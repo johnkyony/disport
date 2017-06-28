@@ -1,0 +1,36 @@
+.container.profile
+  - @invitations.each do |invitation|
+    %p[invitation]
+    .row
+      .span12
+        .well.well-small.clearfix
+          .row-fluid
+            .span2
+              %img.img-polaroid{:src => "#{invitation.user.avatar}" , :alt => "#{invitation.user.avatar}"}/
+            .span4
+              %h2 "#{invitation.user.name}"
+              %ul.unstyled
+                %li
+                  %i.icon-phone
+                  "#{invitation.user.location}"
+                %li
+                  %i.icon-envelope
+                  "#{invitation.user.email}"
+              = link_to "Accept" , "#" , class: "btn btn-primary"
+            .span6
+              %ul.inline.stats
+                %li
+                  %span 275
+                  Friends
+                %li
+                  %span 354
+                  Followers
+                %li
+                  %span 186
+                  Photos
+             
+                
+                / /span6
+              / /row
+            / Body content
+        

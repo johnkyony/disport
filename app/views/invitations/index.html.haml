@@ -1,2 +1,23 @@
-%h1 Invitations#index
-%p Find me in app/views/invitations/index.html.haml
+.container
+  .row.grid-divider
+    .col-sm-4
+      .col-padding
+        %h3 Pending join request
+        - if !@invitations.nil?
+          = render 'invitations/invitation'
+        - else 
+          %p There is no invitations for the moment 
+    .col-sm-4
+      .col-padding
+        %h3 Column 2
+        = image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@game.latitude},#{@game.longitude}&markers=#{@game.latitude},#{@game.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",  class: 'img-fluid img-rounded', alt: "#{@game.address} on the map"  
+                                                                                                                                                      
+
+    .col-sm-4
+      .col-padding
+        %header
+          %h1.display-4= @game.user.name
+        %p
+          Address: #{@game.address}
+        %p
+          Coordinates: #{@game.latitude} , #{@game.longitude}

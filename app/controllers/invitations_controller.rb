@@ -1,6 +1,8 @@
 class InvitationsController < ApplicationController
   before_action :authenticate_user!
   def index
+    @invitations = Invitation.where(game_id: params[:game_id])
+    @game = Game.find_by_id(params[:game_id])
   end
   
   def new

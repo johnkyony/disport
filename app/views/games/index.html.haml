@@ -8,5 +8,5 @@
     .card-block
       %h4.card-title= game.user.name
       %p.card-text Game Location : "#{game.address}"
-      = link_to "Join Game" , game_path(game), class: "btn btn-primary" 
+      = link_to "Join Game" , game_invitations_path(game), class: "btn btn-primary" ,:method => :post
 %p=  @visitors_location

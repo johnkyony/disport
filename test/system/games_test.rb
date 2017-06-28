@@ -3,8 +3,11 @@ require "application_system_test_case"
 class GamesTest < ApplicationSystemTestCase
   setup do
     @john = users(:john)
+    @lena = users(:lena)
     login_as(@john)
     @games = Game.near(@john.location , 20 , :units => :km)
+    @game = games(:lena_game)
+    @invitations = Invitation.where(game_id: @game.id)
   end
   test "The user can see all the games close to him" do
     visit games_url
@@ -26,11 +29,34 @@ class GamesTest < ApplicationSystemTestCase
       end
       assert_text "Waiting on #{games.user.name} respond to request"
     end
-    
-    
-    
-    
   end
   
+  
+  
+  test "The player owner should see all the pending request for his game " do 
+    visit game_invitations_path(@game)
+    if @lena.id == @game.user.id
+      assert_text "Pending join request"
+      @invitations.each do |invitation|
+        has_selector?( 'img[alt="#{invitation.user.avatar}"]' ) 
+        assert_text invitation.user.name
+      end
+    else
+      assert_text "Please wait for the #{@game.user.name} response"
+    end
+  end
+  
+  test "the game owner should be able to accept the user" do
+    accepted_invitation = invitations(:both_accepted_game)
+    visit game_invitations_path(@game)
+    if @lena.id == @game.user.id 
+      @invitations.each do | invitation|  
+        within "#invitation_#{accepted_invitation.id}" do 
+          click_on "Accept"
+        end
+      end
+      assert_text "#{accepted_invitation.user.name} has been acceptted"
+    end
+  end
   
 end

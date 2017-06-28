@@ -15,17 +15,24 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @game.user_id = current_user.id
-    if @game.save
-      flash[:success] = "Game added!"
-      redirect_to root_path
+    if current_user.id != nil
+      @game.user_id = current_user.id
+     
+      if @game.save
+        flash[:success] = "Game added!"
+        redirect_to game_invitations_path(@game)
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      flash[:notice] = "Please log in first"
+      redirect_to  new_user_session_path
     end
   end
   
   def show
     @game = Game.find(params[:id])
+    @invitations = Invitation.find_by(game_id: @game.id)
   end
   
   private 
