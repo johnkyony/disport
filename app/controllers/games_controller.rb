@@ -1,12 +1,10 @@
 class GamesController < ApplicationController
   def index
     @games = Game.all.reverse
-    # if user_signed_in?
-    #   @games = Game.near(current_user.location , 20 , :units => :km)
-    # else
-    #   @visitors_location = request.location.try(:address)
-    #   @games = Game.near(@visitors_location , 20 , :units => :km)
-    # end
+    if user_signed_in?
+      @invitations = Invitation.where(user_id: current_user.id , game_owner_response_status: 1 )
+      # @games = Game.near(current_user.location , 20 , :units => :km)
+    end
   end
 
   def new

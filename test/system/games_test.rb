@@ -8,6 +8,8 @@ class GamesTest < ApplicationSystemTestCase
     @games = Game.near(@john.location , 20 , :units => :km)
     @game = games(:lena_game)
     @invitations = Invitation.where(game_id: @game.id)
+    @accepted_invitation = invitations(:both_accepted_game)
+    @all_games = Game.all.reverse
   end
   test "The user can see all the games close to him" do
     visit games_url
@@ -47,16 +49,27 @@ class GamesTest < ApplicationSystemTestCase
   end
   
   test "the game owner should be able to accept the user" do
-    accepted_invitation = invitations(:both_accepted_game)
     visit game_invitations_path(@game)
     if @lena.id == @game.user.id 
       @invitations.each do | invitation|  
-        within "#invitation_#{accepted_invitation.id}" do 
+        within "#invitation_#{@accepted_invitation.id}" do 
           click_on  "Accept"
         end
       end
-      assert_text "#{accepted_invitation.user.name} has been acceptted"
+      assert_text "#{@accepted_invitation.user.name} has been acceptted"
     end
+  end
+  
+  test "The player that has requested for the game can be notified that the he has asked to join has been accepted" do
+    visit root_path
+    @all_games.each do |game| 
+      within "#game_#{@accepted_invitation.game.id}" do 
+        click_on "Ready for Game"
+      end
+      assert_text "Lets GO"
+      click_on "Lets Go"
+    end
+    
   end
   
 end

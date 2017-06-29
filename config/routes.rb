@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   resources :invitations
-  
+  post 'invitations/game_owner_accept_invitation',  :to => 'invitations#game_owner_accept_invitation'
   resources :games do 
-    resources :invitations
+    resources :invitations do
+      member do
+        put 'game_owner_accept_invitation'
+        put 'decline'
+      end
+    end
   end
   
   resources :distances, only: [:new, :create]

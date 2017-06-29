@@ -1,5 +1,6 @@
 class InvitationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_invitation, only: [:show, :edit, :update, :destroy, :game_owner_accept_invitation, :decline]
   def index
     @invitations = Invitation.where(game_id: params[:game_id])
     @game = Game.find_by_id(params[:game_id])
@@ -22,11 +23,24 @@ class InvitationsController < ApplicationController
         flash[:error] = "Please retry"
         render games_path
     end
-    
+  end
+  
+  def game_owner_accept_invitation
+    @invitation.accepted!
+    if @invitation.save
+      flash[:success] = " #{@invitation.user.name} has been acceptted "
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:notice] = "An error has occurred please try again"
+      redirect_back(fallback_location: root_path)
+    end
   end
   private
   
   def invitations_params
     params.require(:invitation).permit(:user_id , :game_id , :game_owner_response_status , :game_player_response_status)
+  end
+  def set_invitation
+    @invitation = Invitation.find(params[:id])
   end
 end
