@@ -8,7 +8,7 @@
             %h3.card-title "#{invitation.user.name}"
             %h6.card-text Email: "#{invitation.user.email}"
             %h6.card-text Location: "#{invitation.user.location}"
-            %h6= link_to "Ready For Gane" , invitations_game_owner_accept_invitation_path(:id => invitation.id) , class: "btn btn-primary" ,:method => :post
+            %h6= link_to "Ready for Game" , invitations_player_accept_invitation_path(:id => invitation.id) , class: "btn btn-primary" ,:method => :post
              
              
  

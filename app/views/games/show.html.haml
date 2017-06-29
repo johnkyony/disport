@@ -1,10 +1,10 @@
-// %header
-//   %h1.display-4= @game.user.name
-// %p
-//   Address: #{@game.address}
-// %p
-//   Coordinates: #{@game.latitude} , #{@game.longitude}
+%header
+  %h1.display-4 Lets GO
+%p Directions Below
+ 
+%p
+  Coordinates: #{@game.latitude} , #{@game.longitude}
 
-// = image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@game.latitude},#{@game.longitude}&markers=#{@game.latitude},#{@game.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8", |
-//   class: 'img-fluid img-rounded', alt: "#{@game.address} on the map"                                                                                                                                                       |
+= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@game.latitude},#{@game.longitude}&markers=#{@game.latitude},#{@game.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8", |
+  class: 'img-fluid img-rounded', alt: "#{@game.address} on the map"                                                                                                                                                       |
 

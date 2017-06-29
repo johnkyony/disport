@@ -1,6 +1,6 @@
 class InvitationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_invitation, only: [:show, :edit, :update, :destroy, :game_owner_accept_invitation, :decline]
+  before_action :set_invitation, only: [:show, :edit, :update, :destroy, :game_owner_accept_invitation, :player_accept_invitation]
   def index
     @invitations = Invitation.where(game_id: params[:game_id])
     @game = Game.find_by_id(params[:game_id])
@@ -39,8 +39,11 @@ class InvitationsController < ApplicationController
   def player_accept_invitation
     @invitation.accept!
     if @invitation.save 
-      flash[:success] = "Ready to go to"
+      flash[:success] = "Ready to go to location"
+      redirect_to game_path(:id => @invitation.game.id)
     else
+       flash[:notice] = "An error has occurred please try again"
+      redirect_back(fallback_location: root_path)
     end
   end
   private
