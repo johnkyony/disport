@@ -35,6 +35,14 @@ class InvitationsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
+  
+  def player_accept_invitation
+    @invitation.accept!
+    if @invitation.save 
+      flash[:success] = "Ready to go to"
+    else
+    end
+  end
   private
   
   def invitations_params

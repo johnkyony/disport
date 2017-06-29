@@ -3,13 +3,8 @@ require "application_system_test_case"
 class GamesTest < ApplicationSystemTestCase
   setup do
     @john = users(:john)
-    @lena = users(:lena)
     login_as(@john)
     @games = Game.near(@john.location , 20 , :units => :km)
-    @game = games(:lena_game)
-    @invitations = Invitation.where(game_id: @game.id)
-    @accepted_invitation = invitations(:both_accepted_game)
-    @all_games = Game.all.reverse
   end
   test "The user can see all the games close to him" do
     visit games_url
@@ -31,8 +26,19 @@ class GamesTest < ApplicationSystemTestCase
       end
       assert_text "Waiting on #{games.user.name} respond to request"
     end
+
   end
   
+  
+  
+ 
+  
+  
+  
+ 
+  
+  
+ 
   
   
   test "The player owner should see all the pending request for his game " do 
@@ -71,5 +77,18 @@ class GamesTest < ApplicationSystemTestCase
     end
     
   end
+
   
+  
+ 
+ 
+ 
+ 
+  
+ 
+  
+
+
+
+   
 end
