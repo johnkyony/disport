@@ -1,3 +1,6 @@
+%script{:src => "https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js"}
+%link{:href => "https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css", :rel => "stylesheet"}/
+
 %header
   %h1.display-4 Lets GO
 %p Directions Below
@@ -8,3 +11,10 @@
 = image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@game.latitude},#{@game.longitude}&markers=#{@game.latitude},#{@game.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8", |
   class: 'img-fluid img-rounded', alt: "#{@game.address} on the map"                                                                                                                                                       |
 
+#map{:style => "width: 400px; height: 300px;"}
+:javascript
+  mapboxgl.accessToken = 'pk.eyJ1Ijoiamt5b255IiwiYSI6ImNqNGlmdXh1YjA4NmczMnFhN3BrMzlzZG0ifQ.wMXTgpwCR5K9F7wudXCBvA';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/dark-v9'
+  });
