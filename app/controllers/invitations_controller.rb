@@ -38,7 +38,7 @@ class InvitationsController < ApplicationController
   
   def player_accept_invitation
     @invitation.accept!
-    @game = Game.find_by_id(@invitaion.game.id)
+    @game = Game.find_by_id(@invitaion.game_id)
     @visitors_location = request.location.try(:address)
     if @invitation.save 
       flash[:success] = "Ready to go to location"
