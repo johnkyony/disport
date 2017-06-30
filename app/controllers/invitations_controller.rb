@@ -38,12 +38,15 @@ class InvitationsController < ApplicationController
   
   def player_accept_invitation
     @invitation.accept!
+    @game = Game.find_by_id(@invitaion.game.id)
+    @visitors_location = request.location.try(:address)
     if @invitation.save 
       flash[:success] = "Ready to go to location"
-      redirect_to game_path(:id => @invitation.game.id)
+      
+      redirect_to "https://www.google.com/maps/dir/?api=1&origin=@visitors_location&destination=#{@game.latitude},#{@game.longitude}&travelmode=walking"
     else
        flash[:notice] = "An error has occurred please try again"
-      redirect_back(fallback_location: root_path)
+        redirect_back(fallback_location: root_path)
     end
   end
   private
