@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/thoughtbot/capybara-webkit
+  revision: 90d3196caf0098f9f4c20ea8d453637d2c1feed8
+  specs:
+    capybara-webkit (1.14.0)
+      capybara (>= 2.3.0, < 2.15.0)
+      json
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -69,9 +77,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-webkit (1.14.0)
-      capybara (>= 2.3.0, < 2.14.0)
-      json
     childprocess (0.7.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (1.1.0)
@@ -369,7 +374,7 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.alpha6)
   byebug
   capybara (~> 2.13)
-  capybara-webkit
+  capybara-webkit!
   chromedriver-helper
   coffee-rails (~> 4.2)
   connection_pool

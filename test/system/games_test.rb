@@ -67,8 +67,7 @@ class GamesTest < ApplicationSystemTestCase
         click_on  "Ready for Game"
       end
     end
-    assert_text "Lets GO"
-    assert_text "Directions Below"
+    
   end
     
   

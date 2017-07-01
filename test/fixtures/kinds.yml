@@ -10,8 +10,11 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+amatuer:
+  name: "amatuer"
 
-two:
-  name: MyString
+semi-pro:
+  name: "beginer"
+
+proffessional: 
+  name: "proffessional"

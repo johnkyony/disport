@@ -36,5 +36,16 @@ class PlayersFlowTest < ActionDispatch::IntegrationTest
     end
   end
   
+  test "The player should receive points after he creates a game" do 
+    amatuer_player = kinds(:amatuer)
+    game = Game.new(user_id: @john.id  , address: @place.address)
+    game.save 
+    if game.save!
+      @john.change_points({ points: 10, kind: amatuer_player.id})
+    else
+      follow_redirect!
+    end
+    
+  end
   
 end

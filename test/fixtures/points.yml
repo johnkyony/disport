@@ -12,12 +12,12 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 1
-  kind_id: 1
-  value: 1
+john_points:
+  user_id: john
+  kind_id: amatuer
+  value: 50
 
-two:
-  user_id: 1
-  kind_id: 1
-  value: 1
+lena:
+  user_id: lena
+  kind_id: amatuer
+  value: 100
