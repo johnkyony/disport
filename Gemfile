@@ -18,6 +18,7 @@ gem "erb2haml", :group => :development
 gem "webpacker"
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'gioco'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end

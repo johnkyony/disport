@@ -43,7 +43,7 @@ class InvitationsController < ApplicationController
     if @invitation.save 
       flash[:success] = "Ready to go to location"
       
-      redirect_to "https://www.google.com/maps/dir/?api=1&origin=#{@visitors_location}&destination=#{@game.latitude},#{@game.longitude}&travelmode=walking"
+      redirect_to "https://www.google.com/maps/dir/?api=1&origin=#{@visitors_location}&destination=#{@game.latitude},#{@game.longitude}&travelmode=driving"
     else
        flash[:notice] = "An error has occurred please try again"
         redirect_back(fallback_location: root_path)

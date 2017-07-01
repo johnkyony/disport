@@ -22,6 +22,7 @@
 #  latitude               :float
 #  longitude              :float
 #  location               :string
+#  points                 :integer
 #
 
 require 'test_helper'

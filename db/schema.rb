@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623121628) do
+ActiveRecord::Schema.define(version: 20170701112130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name"
+    t.integer "points"
+    t.boolean "default"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "kind_id"
+    t.index ["kind_id"], name: "index_badges_on_kind_id"
+  end
 
   create_table "games", force: :cascade do |t|
     t.bigint "user_id"
@@ -44,12 +54,33 @@ ActiveRecord::Schema.define(version: 20170623121628) do
     t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
+  create_table "kinds", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "levels", force: :cascade do |t|
+    t.integer "badge_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "title"
     t.text "address"
     t.float "latitude"
     t.float "longitude"
     t.string "visited_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "kind_id"
+    t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,10 +113,12 @@ ActiveRecord::Schema.define(version: 20170623121628) do
     t.float "latitude"
     t.float "longitude"
     t.string "location"
+    t.integer "points"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "badges", "kinds"
   add_foreign_key "games", "team_sizes"
   add_foreign_key "games", "users"
   add_foreign_key "invitations", "games"
