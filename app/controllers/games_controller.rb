@@ -10,6 +10,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    
   end
 
   def create
@@ -17,9 +18,14 @@ class GamesController < ApplicationController
     if current_user.id != nil
       @game.user_id = current_user.id
      
+      
+     
       if @game.save
         flash[:success] = "Game added!"
+        current_user.change_points({ points:10, kind: AMATUER })
+        flash[:success] = "You just got some more points"
         redirect_to game_invitations_path(@game)
+         
       else
         render 'new'
       end
