@@ -67,8 +67,9 @@ class GamesTest < ApplicationSystemTestCase
         click_on  "Ready for Game"
       end
     end
-    
   end
+  
+  
     
   
 end
