@@ -12,9 +12,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 amatuer:
-  badge_id: 1
+  badge_id: first_game
   user_id: john
 
 semi-proffessional:
-  badge_id: 1
+  badge_id: ten_game 
   user_id: lena

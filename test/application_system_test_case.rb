@@ -10,6 +10,8 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
    config.allow_url("khms1.googleapis.com")
    config.allow_url("https://www.gstatic.com/*")
    config.allow_url("*://khms0.googleapis.com/*")
+   config.allow_url("*://maps.gstatic.com/*")
+   config.allow_url("*.google.*")
 
   end
 end

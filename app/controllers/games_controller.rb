@@ -20,7 +20,7 @@ class GamesController < ApplicationController
      
       if @game.save
         flash[:success] = "Game added!"
-        redirect_to game_invitations_path(@game)
+        redirect_to game_points_path(:game_id => @game.id)
          
       else
         render 'new'
