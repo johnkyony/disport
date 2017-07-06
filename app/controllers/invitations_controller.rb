@@ -2,8 +2,9 @@ class InvitationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_invitation, only: [:show, :edit, :update, :destroy, :game_owner_accept_invitation, :player_accept_invitation]
   def index
-    @invitations = Invitation.where(game_id: params[:game_id])
     @game = Game.find_by_id(params[:game_id])
+    @invitations = Invitation.where(game_id: params[:game_id])
+    
   end
   
   def new
@@ -57,4 +58,5 @@ class InvitationsController < ApplicationController
   def set_invitation
     @invitation = Invitation.find(params[:id])
   end
+  
 end

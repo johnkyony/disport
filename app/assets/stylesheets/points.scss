@@ -1,3 +1,17 @@
-// Place all the styles related to the points controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+nav { background: #fff; border-color: #ccc; box-shadow: 0 0 2px 0 #ccc; }
+nav a { color: #f14444; }
+nav ul.navbar-nav a { color: #f14444; border-style: solid; border-width: 0 0 2px 0; border-color: #fff; }
+nav ul.navbar-nav a:hover,
+nav ul.navbar-nav a:visited,
+nav ul.navbar-nav a:focus,
+nav ul.navbar-nav a:active { background: #fff; }
+nav ul.navbar-nav a:hover { border-color: #f14444; }
+nav li.divider { background: #ccc; }
+nav button.navbar-toggle { background: #f14444; border-radius: 2px; }
+nav button.navbar-toggle:hover { background: #999; }
+nav button.navbar-toggle > span.icon-bar { background: #fff; }
+nav ul.dropdown-menu { border: 0; background: #fff; border-radius: 4px; margin: 4px 0; box-shadow: 0 0 4px 0 #ccc; }
+nav ul.dropdown-menu > li > a { color: #444; }
+nav ul.dropdown-menu > li > a:hover { background: #f14444; color: #fff; }
+nav span.badge { background: #f14444; font-weight: normal; font-size: 11px; margin: 0 4px; }
+nav span.badge.new { background: rgba(255, 0, 0, 0.8); color: #fff; }

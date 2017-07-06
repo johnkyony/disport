@@ -6,10 +6,8 @@ class ApplicationController < ActionController::Base
   def user_point
     if user_signed_in?
       @user_point = Point.find_by(user_id: current_user.id)
+    end
       
-    else
-      @user_point = 0
-       
-    end  
+    
   end
 end
