@@ -21,7 +21,6 @@ class GamesTest < ApplicationSystemTestCase
   end
   
   test "The user can request to join a game near by " do 
-    login_as(@john)
     visit root_path
     @games.each do |games| 
       within "#game_#{games.id}" do 
@@ -69,7 +68,13 @@ class GamesTest < ApplicationSystemTestCase
     end
   end
   
-  
+  test 'The player can see his fitness points on the navbar' do
+   john_points = points(:john_points)
+    visit root_path
+    within "#fitness_points" do
+      assert_text john_points.value
+    end
+  end
     
   
 end
