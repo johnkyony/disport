@@ -9,7 +9,7 @@ do
 
    if [[ "$ATIME" != "$LTIME" ]]
    then    
-       echo "xvfb-run -a rails test:system"
+       echo "rails test:system"
        LTIME=$ATIME
    fi
    sleep 5

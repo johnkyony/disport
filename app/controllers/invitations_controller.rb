@@ -1,10 +1,10 @@
 class InvitationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_invitation, only: [:show, :edit, :update, :destroy, :game_owner_accept_invitation, :player_accept_invitation]
+  before_action :set_game_owner , only: [:index]
   def index
-    @game = Game.find_by_id(params[:game_id])
+    @game = Game.find_by_id(params[:game_id])	  
     @invitations = Invitation.where(game_id: params[:game_id])
-    
   end
   
   def new
@@ -58,5 +58,12 @@ class InvitationsController < ApplicationController
   def set_invitation
     @invitation = Invitation.find(params[:id])
   end
-  
+  def set_game_owner
+    @game_owner = Game.find_by_id(params[:game_id])	  
+    if user_signed_in? 
+      if current_user.id != @game_owner.user_id
+        redirect_back(fallback_location: root_path)	      
+      end
+    end
+  end
 end

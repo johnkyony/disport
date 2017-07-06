@@ -56,7 +56,6 @@ group :test do
   gem "minitest-reporters"
   gem "mocha"
   gem "poltergeist"
-  gem 'capybara-webkit', :git => "git://github.com/thoughtbot/capybara-webkit"
   gem "shoulda-context"
   gem "shoulda-matchers", ">= 3.0.1"
  

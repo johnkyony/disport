@@ -15,11 +15,12 @@ Minitest::Reporters.use!(
 
 # Capybara and poltergeist integration
 require "capybara/rails"
-Capybara.default_driver = :webkit
+require "capybara/poltergeist"
+Capybara.default_driver = :poltergeist
 OmniAuth.config.test_mode = true
 
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  Capybara::Selenium::Driver.new(app, :browser => :firefox)
 end
 
 class ActiveSupport::TestCase
@@ -44,16 +45,4 @@ class ActiveRecord::Base
   end
 end
 ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
-Capybara::Webkit.configure do |config|
-  config.allow_url("scontent.xx.fbcdn.net")
-  config.allow_url("https://maps.googleapis.com/maps/api/js?key=AIzaSyAcFg-pbmqYbpV_lwc_8lJIuJ1HNjzwblg")
-  config.allow_url("maps.googleapis.com")
-  config.allow_url("https://csi.gstatic.com/csi?v=2&s=mapsapi3&v3v=29.8&action=apiboot2&e=10_1_0,10_2_0&rt=main.23")
-  config.allow_url("csi.gstatic.com")
-  config.allow_url("graph.facebook.com")
-  config.allow_url("http://graph.facebook.com/v2.6/10155437128468147/picture")
-  config.allow_url("cdnjs.cloudflare.com")
-  config.allow_url("https://code.jquery.com/jquery-3.1.1.slim.min.js")
-  config.allow_url("www.google.com")
-  config.allow_url("maps.gstatic.com")
-end
+
