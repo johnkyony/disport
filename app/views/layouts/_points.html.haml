@@ -3,7 +3,7 @@
     %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
       %i.fa.fa-fw.fa-bell-o
       Points
-      %span.badgep#fitness_points "#{@user_point}"
+      %span.badgep#fitness_points "#{@user_point.value}"
     %ul.dropdown-menu{:role => "menu"}
       %li
         %a{:href => "#"}
