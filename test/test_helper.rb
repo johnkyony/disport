@@ -15,11 +15,12 @@ Minitest::Reporters.use!(
 
 # Capybara and poltergeist integration
 require "capybara/rails"
-Capybara.default_driver = :webkit
+require "capybara/poltergeist"
+Capybara.default_driver = :poltergeist
 OmniAuth.config.test_mode = true
 
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  Capybara::Selenium::Driver.new(app, :browser => :firefox)
 end
 
 class ActiveSupport::TestCase
