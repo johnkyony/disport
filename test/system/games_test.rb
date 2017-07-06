@@ -67,9 +67,17 @@ class GamesTest < ApplicationSystemTestCase
         click_on  "Ready for Game"
       end
     end
-    assert_text "Lets GO"
-    assert_text "Directions Below"
   end
+
+  test 'The player can see his fitness points on the navbar' do
+   john_points = points(:john_points)
+    visit root_path
+    within "#fitness_points" do
+      assert_text john_points.value
+    end
+  end
+  
+  
     
   
 end

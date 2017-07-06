@@ -11,10 +11,10 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  badge_id: 1
-  user_id: 1
+amatuer:
+  badge_id: first_game
+  user_id: john
 
-two:
-  badge_id: 1
-  user_id: 1
+semi-proffessional:
+  badge_id: ten_game 
+  user_id: lena

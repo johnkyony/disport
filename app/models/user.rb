@@ -26,9 +26,10 @@
 #
 
 class User < ApplicationRecord
+has_many :levels
 has_many :points  
-has_many :badges , :through => :levels 
-has_many :levels  
+has_many :badges ,-> { distinct }, :through => :levels 
+  
 
 def change_points(options)
   if Gioco::Core::KINDS

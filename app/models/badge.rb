@@ -8,6 +8,7 @@
 #  default    :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  kind_id    :integer
 #
 
 class Badge < ApplicationRecord

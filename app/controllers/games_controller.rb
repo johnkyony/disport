@@ -20,9 +20,7 @@ class GamesController < ApplicationController
      
       if @game.save
         flash[:success] = "Game added!"
-        current_user.change_points({ points:10, kind: 1 })
-        flash[:success] = "You just got some more points"
-        redirect_to game_invitations_path(@game)
+        redirect_to game_points_path(:game_id => @game.id)
          
       else
         render 'new'
