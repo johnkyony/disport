@@ -1,8 +1,25 @@
-%h1 Home#index
+%header
+  %h1.display-4 games
 
-- if user_signed_in?
-  - if current_user
-    = @user.location
-- else
-  %p Find me in app/views/home/index.html.haml
-  
+%p=  @visitors_location
+.container
+  .row.grid-divider
+    .col-sm-4
+      .col-padding
+        %h3 Acceptted game requests
+        - if !@invitations.nil?
+          = render 'games/invitation'
+        - else 
+          %p There is no invitations for the moment 
+    .col-sm-4
+      .col-padding
+        %h3 Column 2
+        = link_to 'Add Games', new_game_path, class: 'btn btn-primary btn-lg'
+        - @games.each do |game|
+          .card{:style => "width: 20rem;"}
+            %p[game]
+            %img.card-img-top{:alt => "Card image cap", :src => "#{game.user.avatar}"}/
+            .card-block
+              %h4.card-title= game.user.name
+              %p.card-text Game Location : "#{game.address}"
+              = link_to "Join Game" , game_invitations_path(game), class: "btn btn-primary" ,:method => :post

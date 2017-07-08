@@ -3,7 +3,8 @@ require 'test_helper'
 class GamesControllerTest < ActionDispatch::IntegrationTest
   
   setup do
-   
+   @john = users(:john)
+   login_as(@john)
   end
   test "should get index" do
     get games_url
