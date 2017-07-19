@@ -15,7 +15,7 @@
 john_points:
   user_id: john
   kind_id: amatuer
-  value: 50
+  value: 5
 
 lena:
   user_id: lena

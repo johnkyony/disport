@@ -71,15 +71,9 @@ class GamesTest < ApplicationSystemTestCase
   test 'The player can see his fitness points on the navbar' do
    john_points = points(:john_points)
     visit root_path
-    if user_signed_in?
-    	within "#fitness_points" do
-      	assert_text john_points.value
-    	end
-    else
-      within "#fitness_points" do 
-        assert_text "Points 0"
-      end
-    end
+  	within "#fitness_points" do
+    	assert_text john_points.value
+  	end
   end
   
 
