@@ -75,6 +75,10 @@ class GamesTest < ApplicationSystemTestCase
     	within "#fitness_points" do
       	assert_text john_points.value
     	end
+    else
+      within "#fitness_points" do 
+        assert_text "Points 0"
+      end
     end
   end
   

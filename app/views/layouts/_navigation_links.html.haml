@@ -1,9 +1,10 @@
 %li.nav-item= link_to "Find distances" ,  new_distance_path , class: "nav-link"
 %li.nav-item= link_to "Add Places" , new_place_path , class: "nav-link"
+= render 'layouts/point'
 - if user_signed_in?
   %li.nav-item= link_to 'Edit account', edit_user_registration_path , class: "nav-link"
   %li.nav-item= link_to 'Sign out', destroy_user_session_path, :method => :get , class: "nav-link"
-  = render 'layouts/point'
+ 
 
 
 - else
