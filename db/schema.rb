@@ -37,12 +37,6 @@ ActiveRecord::Schema.define(version: 20170701112130) do
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
-  create_table "games_sizes", force: :cascade do |t|
-    t.integer "sizes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "invitations", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "game_id"
@@ -86,7 +80,7 @@ ActiveRecord::Schema.define(version: 20170701112130) do
   end
 
   create_table "team_sizes", force: :cascade do |t|
-    t.string "size"
+    t.integer "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "game_id"
