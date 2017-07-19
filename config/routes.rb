@@ -29,5 +29,5 @@ Rails.application.routes.draw do
   end
   
   
-  root 'games#index'
+  root 'home#index'
 end

@@ -13,6 +13,8 @@
 //= require jquery
 //= require rails-ujs
 //= require 'tether'
+//= require 'home'
 //= require bootstrap-sprockets
 //= require map
 //= require_tree .
+

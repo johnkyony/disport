@@ -1,24 +1,89 @@
-%header
-  %h1.display-4 games
+%nav.navbar.navbar-toggleable-md.mb-4.top-bar.navbar-static-top.sps.sps--abv
+  .container
+    %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarCollapse1", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    %a.navbar-brand{:href => "#"}
+      Gra
+      %span freez
+    #navbarCollapse1.collapse.navbar-collapse
+      %ul.navbar-nav.ml-auto
+        %li.nav-item.active
+          %a.nav-link{:href => "#myCarousel"}
+            Home
+            %span.sr-only (current)
+        %li.nav-item
+          %a.nav-link{:href => "#benefits"} Benefits
+        %li.nav-item
+          %a.nav-link{:href => "#about"} About
+        %li.nav-item
+          %a.nav-link{:href => "#blog"} Blog
+        %li.nav-item
+          %a.nav-link{:href => "#gallery"} Image Gallery
+        %li.nav-item
+          %a.nav-link{:href => "#contact"} Contact
 
-.container
-  .row.grid-divider
-    .col-sm-4
-      .col-padding
-        %h3 Acceptted game requests
-        - if !@invitations.nil?
-          = render 'games/invitation'
-        - else 
-          %p There is no invitations for the moment 
-    .col-sm-4
-      .col-padding
-        %h3 Column 2
-        = link_to 'Add Games', new_game_path, class: 'btn btn-primary btn-lg'
-        - @games.each do |game|
-          .card{:style => "width: 20rem;"}
-            %p[game]
-            %img.card-img-top{:alt => "Card image cap", :src => "#{game.user.avatar}"}/
-            .card-block
-              %h4.card-title= game.user.name
-              %p.card-text Game Location : "#{game.address}"
-              = link_to "Join Game" , game_invitations_path(game), class: "btn btn-primary" ,:method => :post
+#myCarousel.swiper-container.main-slider
+  .swiper-wrapper
+    .swiper-slide.slider-bg-position{"data-hash" => "slide1", :style => "background:url('http://grafreez.com/wp-content/temp_demos/burnout/img/1.jpg')"}
+      %h2 It is health that is real wealth and not pieces of gold and silver
+    .swiper-slide.slider-bg-position{"data-hash" => "slide2", :style => "background:url('http://grafreez.com/wp-content/temp_demos/burnout/img/3.jpg')"}
+      %h2 Happiness is nothing more than good health and a bad memory
+  / Add Pagination
+  .swiper-pagination
+  / Add Navigation
+  .swiper-button-prev
+    %i.fa.fa-chevron-left
+  .swiper-button-next
+    %i.fa.fa-chevron-right
+
+%section#benefits.service-sec
+  .container
+    .row
+      .col-md-12
+        .heading
+          %h2
+            %small> Benefits of Exercise
+            To enjoy the glow of good health, you must exercise
+      .col-md-8
+        .row
+          .col-md-6.text-sm-center.service-block
+            %i.fa.fa-plus{"aria-hidden" => "true"}
+            %h3 Better Sleep
+            %p Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe.
+          .col-md-6.text-sm-center.service-block
+            %i.fa.fa-leaf{"aria-hidden" => "true"}
+            %h3 Reduces Weight
+            %p Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe.
+          .col-md-6.text-sm-center.service-block
+            %i.fa.fa-leaf{"aria-hidden" => "true"}
+            %h3 Improves Mood
+            %p Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe.
+          .col-md-6.text-sm-center.service-block
+            %i.fa.fa-bell{"aria-hidden" => "true"}
+            %h3 Boosts Energy
+            %p Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe.
+      .col-md-4
+        %img.img-fluid{:src => "http://grafreez.com/wp-content/temp_demos/burnout/img/side-01.jpg"}/
+
+%section#about.about-sec.parallax-section
+  .container
+    .row
+      .col-md-3
+        %h2
+          %small> Who We Are
+          About
+          %br/
+          Our Blog
+      .col-md-4
+        %p To enjoy good health, to bring true happiness to one's family, to bring peace to all, one must first discipline and control one's own mind. If a man can control his mind he can find the way to Enlightenment, and all wisdom and virtue will naturally come to him.
+        %p Saving our planet, lifting people out of poverty, advancing economic growth... these are one and the same fight. We must connect the dots between climate change, water scarcity, energy shortages, global health, food security and women's empowerment. Solutions to one problem must be solutions for all.
+      .col-md-4
+        %p Our greatest happiness does not depend on the condition of life in which chance has placed us, but is always the result of a good conscience, good health, occupation, and freedom in all just pursuits.
+        %p Being in control of your life and having realistic expectations about your day-to-day challenges are the keys to stress management, which is perhaps the most important ingredient to living a happy, healthy and rewarding life.
+        %p
+          %a.btn.btn-transparent-white.btn-capsul{:href => "#"} Explore More
+%section.action-sec
+  .container
+    .action-box.text-center
+      %h2 Download the app here 
+      %a.btn.btn-success{:href => "http://grafreez.com/394/fitness-website-template/", :target => "_blank"} Free Bootstrap Templates
