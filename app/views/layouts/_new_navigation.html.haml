@@ -1,0 +1,34 @@
+%nav.navbar.navbar-toggleable-md.mb-4.top-bar.navbar-static-top.sps.sps--abv
+  .container
+    %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarCollapse1", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    %a.navbar-brand{:href => "#"}
+      Ten
+      %span Dai
+    #navbarCollapse1.collapse.navbar-collapse
+      %ul.navbar-nav.ml-auto
+        %li.nav-item.active
+          %a.nav-link{:href => "#myCarousel"}
+            Home
+            %span.sr-only (current)
+       
+        // %li.nav-item
+        //   %a.nav-link{:href => "#gallery"} Image Gallery
+        %li.nav-item
+          %a.nav-link{:href => "#contact"} Contact
+        - if user_signed_in?
+          = render 'layouts/point'
+          %li.nav-item= link_to 'Edit account', edit_user_registration_path , class: "nav-link"
+          %li.nav-item= link_to 'Sign out', destroy_user_session_path, :method => :get , class: "nav-link"
+         
+        
+        
+        - else
+          %li.nav-item
+            %a.nav-link{:href => "#benefits"} Benefits
+          %li.nav-item
+            %a.nav-link{:href => "#about"} About
+          %li.nav-item
+            %a.nav-link{:href => "#blog"} Blog
+          %li.nav-item= link_to 'Sign in', new_user_session_path , class: "nav-link"
+          %li.nav-item= link_to 'Sign up', new_user_registration_path , class: "nav-link"
