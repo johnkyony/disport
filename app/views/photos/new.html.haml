@@ -1,0 +1,11 @@
+.page-header
+  %h1 Upload Photo
+= form_for @photo do |f|
+  // = render 'shared/errors', object: @photo
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :image
+    = f.file_field :image, class: 'form-control'
+  = f.submit 'Upload', class: 'btn btn-primary'

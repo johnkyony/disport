@@ -1,3 +1,14 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 82cd3781b4bbfe20778fe5f9a6802d348cd5ee1a
+  specs:
+    paperclip (5.1.0)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (~> 0.3.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -74,7 +85,10 @@ GEM
     chromedriver-helper (1.1.0)
       archive-zip (~> 0.7.0)
       nokogiri (~> 1.6)
+    climate_control (0.2.0)
     cliver (0.3.2)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -174,6 +188,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mimemagic (0.3.2)
     mini_portile2 (2.2.0)
     minitest (5.10.2)
     minitest-capybara (0.8.2)
@@ -391,6 +406,7 @@ DEPENDENCIES
   minitest-reporters
   mocha
   omniauth-facebook
+  paperclip!
   pg
   poltergeist
   puma (~> 3.7)
@@ -419,4 +435,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.1
+   1.15.2

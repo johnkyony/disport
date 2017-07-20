@@ -80,3 +80,4 @@ group :development do
   gem "terminal-notifier-guard", :require => false
 
 end
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"

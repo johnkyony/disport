@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  resources :photos, only: [:new, :create, :index, :destroy]
   resources :points
   resources :invitations
   post 'invitations/game_owner_accept_invitation',  :to => 'invitations#game_owner_accept_invitation'
