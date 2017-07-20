@@ -80,3 +80,8 @@ group :development do
   gem "terminal-notifier-guard", :require => false
 
 end
+# Shrine Dependencies
+gem 'fastimage'
+gem 'image_processing'
+gem 'mini_magick'
+gem 'shrine'

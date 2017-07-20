@@ -1,0 +1,8 @@
+- if target.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@photo.errors.count, "error")
+      prohibited this book from being saved:
+    %ul
+      - @photo.errors.full_messages.each do |message|
+        %li= message

@@ -92,6 +92,7 @@ GEM
       responders
       warden (~> 1.2.3)
     docile (1.1.5)
+    down (4.0.1)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -103,6 +104,7 @@ GEM
     execjs (2.7.0)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
+    fastimage (2.1.0)
     ffi (1.9.18)
     formatador (0.2.5)
     geocoder (1.4.4)
@@ -147,6 +149,7 @@ GEM
     http_parser.rb (0.6.0)
     hub (1.12.4)
     i18n (0.8.4)
+    image_processing (0.4.4)
     io-like (0.3.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -174,6 +177,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_magick (4.8.0)
     mini_portile2 (2.2.0)
     minitest (5.10.2)
     minitest-capybara (0.8.2)
@@ -306,6 +310,8 @@ GEM
     shoulda-context (1.2.2)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+    shrine (2.6.1)
+      down (>= 2.3.6)
     simplecov (0.14.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -371,6 +377,7 @@ DEPENDENCIES
   connection_pool
   devise
   erb2haml
+  fastimage
   geocoder
   gioco
   gmaps4rails
@@ -381,10 +388,12 @@ DEPENDENCIES
   high_voltage
   html2haml
   hub
+  image_processing
   jbuilder (~> 2.5)
   koala
   launchy
   listen (>= 3.0.5, < 3.2)
+  mini_magick
   minitest-focus
   minitest-rails
   minitest-rails-capybara
@@ -404,6 +413,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-context
   shoulda-matchers (>= 3.0.1)
+  shrine
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
@@ -419,4 +429,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.1
+   1.15.2

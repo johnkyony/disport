@@ -1,0 +1,10 @@
+%p#notice= notice
+%div
+  %strong Name:
+  = @photo.name
+%div
+  %strong Image:
+  = image_tag @photo.image_url(:original)
+= link_to 'Edit', edit_photo_path(@photo)
+|
+\#{link_to 'Back', photos_path}
