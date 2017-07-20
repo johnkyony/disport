@@ -1,7 +1,7 @@
 
 #myCarousel.swiper-container.main-slider
   .swiper-wrapper
-    .swiper-slide.slider-bg-position{"data-hash" => "slide1", :style => "background:url('http://grafreez.com/wp-content/temp_demos/burnout/img/1.jpg')"}
+    .swiper-slide.slider-bg-position{"data-hash" => "slide1", :style => "background:url(#{asset_url('carousel_2_image.jpg')})"}
       %h2 It is health that is real wealth and not pieces of gold and silver
     .swiper-slide.slider-bg-position{"data-hash" => "slide2", :style => "background:url('http://grafreez.com/wp-content/temp_demos/burnout/img/3.jpg')"}
       %h2 Happiness is nothing more than good health and a bad memory
@@ -40,7 +40,7 @@
             %h3 Boosts Energy
             %p Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe.
       .col-md-4
-        %img.img-fluid{:src => "http://grafreez.com/wp-content/temp_demos/burnout/img/side-01.jpg"}/
+        %img.img-fluid{:src => "#{asset_url('side_image.jpg')}"}/
 
 %section#about.about-sec.parallax-section
   .container
