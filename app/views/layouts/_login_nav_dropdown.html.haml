@@ -1,0 +1,18 @@
+%ul.nav.navbar-nav.navbar-right
+
+  %li.dropdown
+    %a.nav-link.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+      %b Login
+      %span.caret
+    %ul#login-dp.dropdown-menu
+      %li
+        .row
+          .col-md-12
+            Login via
+            .social-buttons
+              %a.btn.btn-fb{:href => "#"}
+                %i.fa.fa-facebook
+                Facebook
+              %a.btn.btn-tw{:href => "#"}
+                %i.fa.fa-twitter
+                Twitter
