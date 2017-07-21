@@ -8,14 +8,19 @@
     #navbarCollapse1.collapse.navbar-collapse
       %ul.navbar-nav.ml-auto
         %li.nav-item.active
-          %a.nav-link{:href => "#myCarousel"}
-            Home
-            %span.sr-only (current)
+          - if user_signed_in?
+            %a.nav-link{:href => "/games"}
+              Home
+              %span.sr-only (current)
+          - else
+            %a.nav-link{:href => "/home/index"}
+              Home
+              %span.sr-only (current)
        
         // %li.nav-item
         //   %a.nav-link{:href => "#gallery"} Image Gallery
-        %li.nav-item
-          %a.nav-link{:href => "#contact"} Contact
+        
+         
         - if user_signed_in?
           = render 'layouts/point'
           %li.nav-item= link_to 'Edit account', edit_user_registration_path , class: "nav-link"
@@ -29,8 +34,11 @@
             %a.nav-link{:href => "#benefits"} Benefits
           %li.nav-item
             %a.nav-link{:href => "#about"} About
-          %li.nav-item
-            %a.nav-link{:href => "#blog"} Blog
+
+
           %li.nav-item= link_to 'Sign in', new_user_session_path , class: "nav-link"
           %li.nav-item= link_to 'Sign up', new_user_registration_path , class: "nav-link"
-= render 'layouts/messages'
+      %li.nav-item
+        %a.nav-link{:href => "#contact"} Contact
+%br
+%br
