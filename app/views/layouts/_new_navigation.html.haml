@@ -17,15 +17,14 @@
               Home
               %span.sr-only (current)
        
-        // %li.nav-item
-        //   %a.nav-link{:href => "#gallery"} Image Gallery
-        
+
          
         - if user_signed_in?
           = render 'layouts/point'
           %li.nav-item= link_to 'Edit account', edit_user_registration_path , class: "nav-link"
           %li.nav-item= link_to 'Sign out', destroy_user_session_path, :method => :get , class: "nav-link"
           %li.nav-item= link_to "Photos" ,   photos_path , class: "nav-link"
+          
          
         
         
@@ -34,11 +33,12 @@
             %a.nav-link{:href => "#benefits"} Benefits
           %li.nav-item
             %a.nav-link{:href => "#about"} About
+          = render 'layouts/login_nav_dropdown'
+          %li.nav-item
+            %a.nav-link{:href => "#contact"} Contact
 
 
-          %li.nav-item= link_to 'Sign in', new_user_session_path , class: "nav-link"
-          %li.nav-item= link_to 'Sign up', new_user_registration_path , class: "nav-link"
-      // %li.nav-item
-      //   %a.nav-link{:href => "#contact"} Contact
-%br
-%br
+
+          // %li.nav-item= link_to 'Sign in', new_user_session_path , class: "nav-link"
+      //     %li.nav-item= link_to 'Sign up', new_user_registration_path , class: "nav-link"
+      // // 
