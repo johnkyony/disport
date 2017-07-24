@@ -1,3 +1,15 @@
-%header
-  %h1.display-4 Add Game
+#myCarousel.swiper-container.main-slider
+  .swiper-wrapper
+    .swiper-slide.slider-bg-position{"data-hash" => "slide1", :style => "background:url(#{asset_url('mahkeo-245724.jpg')})"}
+      %h2 Happiness is nothing more than good health and a bad memory
+    .swiper-slide.slider-bg-position{"data-hash" => "slide2", :style => "background:url('http://grafreez.com/wp-content/temp_demos/burnout/img/3.jpg')"}
+      %h2 Happiness is nothing more than good health and a bad memory
+  / Add Pagination
+  .swiper-pagination
+  / Add Navigation
+  .swiper-button-prev
+    %i.fa.fa-chevron-left
+  .swiper-button-next
+    %i.fa.fa-chevron-right
 = render 'form'
+

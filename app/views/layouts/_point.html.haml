@@ -2,7 +2,8 @@
   - if user_signed_in? 
     %a.nav-link{ :href => "#"}
       Fitness Points 
-      %span.badge.badge-default #{@user_point.value}
+      %span.badge.badge-default #{@user_calculated_points}
+
   - else 
     %a.nav-link{ :href => "#"}
       Fitness Points 
