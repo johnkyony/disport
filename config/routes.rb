@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :games do
     resources :points
   end
+  resources :users do 
+   resources :points 
+  end 
   resources :games do 
     resources :invitations do
       member do

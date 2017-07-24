@@ -15,4 +15,9 @@ class PointsController < ApplicationController
       redirect_to game_invitations_path(:game_id => game.id)
     end
   end
+  
+  def show 
+   player_level = Level.where(user_id: current_user.id)
+   
+  end
 end
