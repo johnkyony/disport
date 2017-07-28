@@ -48,5 +48,8 @@ class PlayersFlowTest < ActionDispatch::IntegrationTest
     
   end
   
+  test "The player should see the leader board" do
+    points = Point.distict.sum(:value)    
+  end
   
 end
