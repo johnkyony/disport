@@ -17,7 +17,6 @@ class PointsController < ApplicationController
   end
   
   def show 
-   player_level = Level.where(user_id: current_user.id)
    
   end
 end

@@ -1,0 +1,2 @@
+module UserPointsHistoryHelper
+end
