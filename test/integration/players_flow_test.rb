@@ -47,6 +47,11 @@ class PlayersFlowTest < ActionDispatch::IntegrationTest
     end
     
   end
+ 
+  test "The leaderboard functionality " do 
+   user_points_hash = User.joins(:points).group('users.id').sum('points.value')
+   
+  end
   
   
 end
