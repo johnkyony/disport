@@ -22,7 +22,7 @@
           .message-head.clearfix
             .avatar.pull-left
               %a{:href => "#"}
-                %img{:src => "#{user[:avatar]}"}/
+                %img{:src => "#{user[value[:avatar]]}"}/
             .user-detail
               %h5.handle @#{user[:email].split("@").first}
               .post-meta
