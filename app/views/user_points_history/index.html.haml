@@ -22,14 +22,16 @@
           .message-head.clearfix
             .avatar.pull-left
               %a{:href => "#"}
-                %img{:src => "#{avatar}"}/
+                %img{:src => "#{points.user.avatar}"}/
             .user-detail
+              %h5.handle @#{current_user.email.split("@").first}
               .post-meta
                 .asker-meta
                   %span.qa-message-what
                   %span.qa-message-when
-                    %span.qa-message-when-data #{user}
+                    %span.qa-message-when-data #{points.created_at}
                   %span.qa-message-who
+                    %span.qa-message-who-pad #{points.value}
           //           %span.qa-message-who-data
           //             %a{:href => "./index.php?qa=user&qa_1=Oleg+Kolesnichenko"} Oleg Kolesnichenko
           // .qa-message-content
