@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'leaderboard/index'
+
   get 'user_points_history/index'
 
   resources :photos
