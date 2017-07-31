@@ -16,22 +16,22 @@
   .row
     %h2 Leader board
   #wallmessages.qa-message-list
-    - @user_point.each do |user , value|
+    - @user_point.each do |points|
       #m16.message-item
         .message-inner
           .message-head.clearfix
             .avatar.pull-left
               %a{:href => "#"}
-                %img{:src => "#{user[:avatar]}"}/
+                %img{:src => "#{points.user.avatar}"}/
             .user-detail
-              %h5.handle @#{user[:email].split("@").first}
+              %h5.handle @#{current_user.email.split("@").first}
               .post-meta
                 .asker-meta
                   %span.qa-message-what
                   %span.qa-message-when
-                    %span.qa-message-when-data #{value}
+                    %span.qa-message-when-data #{points.created_at}
                   %span.qa-message-who
-                    // %span.qa-message-who-pad #{points.value}
+                    %span.qa-message-who-pad #{points.value}
           //           %span.qa-message-who-data
           //             %a{:href => "./index.php?qa=user&qa_1=Oleg+Kolesnichenko"} Oleg Kolesnichenko
           // .qa-message-content
