@@ -16,22 +16,21 @@
   .row
     %h2 Leader board
   #wallmessages.qa-message-list
-    - @user_point.each do |id , email , avatar , value|
+    - @user_point.each do |key,value|
       #m16.message-item
         .message-inner
           .message-head.clearfix
             .avatar.pull-left
               %a{:href => "#"}
-                %img{:src => "#{avatar}"}/
+                %img{:src => "#{key[2]}"}/
             .user-detail
-              %h5.handle @#{email}
+              %h5.handle @#{key[1]}
               .post-meta
                 .asker-meta
                   %span.qa-message-what
                   %span.qa-message-when
                     %span.qa-message-when-data #{value}
                   %span.qa-message-who
-                    %span.qa-message-who-pad #{points.value}
           //           %span.qa-message-who-data
           //             %a{:href => "./index.php?qa=user&qa_1=Oleg+Kolesnichenko"} Oleg Kolesnichenko
           // .qa-message-content
