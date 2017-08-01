@@ -24,7 +24,7 @@
               %a{:href => "#"}
                 %img{:src => "#{key[2]}"}/
             .user-detail
-              %h5.handle @#{key[1]}
+              %h5.handle @#{key[1].split("@").first}
               .post-meta
                 .asker-meta
                   %span.qa-message-what
