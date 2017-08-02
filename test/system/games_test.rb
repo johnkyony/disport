@@ -10,6 +10,7 @@ class GamesTest < ApplicationSystemTestCase
     @invitations = Invitation.where(game_id: @game.id)
     @accepted_invitation = invitations(:both_accepted_game)
     @all_games = Game.all.reverse
+    @john_points = points(:john_points)
   end
   test "The user can see all the games close to him" do
     visit games_url
@@ -69,10 +70,18 @@ class GamesTest < ApplicationSystemTestCase
   end
 
   test 'The player can see his fitness points on the navbar' do
-   john_points = points(:john_points)
+   
     visit root_path
   	within "#fitness_points" do
     	assert_text john_points.value
   	end
+  end
+  
+  test 'the player points should go down if the player hasnt created a game or joined a game in less than a week ' do 
+    visit root_path
+    johns_new_points = @john_points.value - 10 
+    within "#fitness_points" do
+      assert_text johns_new_points
+    end
   end
 end

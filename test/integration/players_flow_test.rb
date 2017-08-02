@@ -53,8 +53,8 @@ class PlayersFlowTest < ActionDispatch::IntegrationTest
    
   end
   
-  test "The player should see the leader board" do
-    points = Point.distict.sum(:value)    
+  test "the player should be deducted points after a week of inactivity" do 
+    h = Game.joins(:invitations , :user).group('games.created_at' , 'games.id' , 'invitations.created_at', 'users.id' , 'users.email' , 'users.last_sign_in_at').count
   end
   
 end

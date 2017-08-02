@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'game_feed/index'
+
   get 'leaderboard/index'
 
   get 'user_points_history/index'
