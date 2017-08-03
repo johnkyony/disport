@@ -30,6 +30,7 @@ has_many :games
 has_many :levels
 has_many :points  
 has_many :badges ,-> { distinct }, :through => :levels 
+has_many :invitations
   
 
 def change_points(options)
