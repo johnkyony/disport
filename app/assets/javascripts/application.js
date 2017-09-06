@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require map
 //= require rails-ujs
 //= require 'tether'
 //= require 'home'
 //= require bootstrap-sprockets
-//= require map
 //= require_tree .
 
